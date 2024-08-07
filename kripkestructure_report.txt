@@ -1,0 +1,24 @@
+states
+s1
+s2
+s3
+s4
+s5
+s6
+s7
+s8
+
+transitions
+s1 -> s2 -> s7 -> s6 -> s5 -> s2
+s8 -> s4 -> s3
+s3 -> s2
+
+labels
+p: s1, s2, s3, s6, s7, s8
+q: s5
+r: s4
+
+formulas
+EX p
+EG p
+E[p U q]

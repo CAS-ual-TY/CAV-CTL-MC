@@ -1,0 +1,71 @@
+// parse kripke structure
+// this is a comment!
+
+// this is what is described in this file:
+
+// p      p      p      r
+// s1 --> s2 <-- s3 <-- s4
+//       ^  \            ^
+//      /     \          |
+//    /         \        |
+//  /            v       |
+// s5 <-- s6 <-- s7     s8
+// q      p      p      p
+
+states // first keyword expected
+// create all states
+s1
+s2
+s3
+s4
+s5
+s6
+s7
+s8
+
+// we connect all states as we want now
+transitions // 2nd keyword expected
+
+// connects s1 to s2, s2 to s7, and so on
+s1 -> s2 -> s7 -> s6 -> s5 -> s2
+
+// reverse arrows
+// connects s8 to s4, and s4 to s3
+s3 <- s4 <- s8
+
+// and obviously you can mention states not just once or in a single line
+// this will not create new states but rather uses the ones already mentioned
+s3 -> s2
+
+// add labels to states
+labels // third keyword
+p: s1, s2, s3, s6, s7, s8
+q: s5
+r: s4
+
+// check these formulas
+formulas // fourth and final keyword
+p
+q
+r
+true
+false
+NOT p
+p AND q
+p OR q
+EX p
+EG p
+EF p
+E[p U q]
+E[p R q]
+AX p
+AG p
+AF p
+A[p U q]
+A[p R q]
+
+// stuff like this also works:
+(p OR (q)) // extra parentheses
+NOT NOT NOT E[E(q U E[q U (q)]) U E[q R E[q R A[q U q]]]] // nested things
+
+// the end :)

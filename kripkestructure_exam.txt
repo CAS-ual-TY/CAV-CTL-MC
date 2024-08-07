@@ -1,0 +1,20 @@
+states
+s0
+s1
+s2
+s3
+s4
+s5
+
+transitions
+s0 -> s1 -> s0
+s1 -> s2 -> s2
+s3 -> s3 -> s4 -> s5 -> s5
+
+labels
+a: s0, s2, s3
+b: s1, s3, s4
+
+formulas
+AG((NOT a) OR AF(a AND b))
+
